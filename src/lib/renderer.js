@@ -36,5 +36,15 @@ const render = employees => {
       return template;
     };
 
+    const renderEngineer = engineer => {
+      let template = fs.readFileSync(path.resolve(pageDir, "engineer.html"), "utf8");
+      template = replacePlaceholders(template, "name", engineer.getName());
+      template = replacePlaceholders(template, "role", engineer.getRole());
+      template = replacePlaceholders(template, "email", engineer.getEmail());
+      template = replacePlaceholders(template, "id", engineer.getId());
+      template = replacePlaceholders(template, "github", engineer.getGithub());
+      return template;
+    };
+
 
 module.exports = render;
