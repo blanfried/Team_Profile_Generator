@@ -14,3 +14,6 @@ No HTML to deploy.
 
 ### Webpage Screenshot
 ![Generated Profiles README Screenshot](./Assets/images/Generated%20Profiles.png)
+
+### Profile Generator Recording
+https://drive.google.com/file/d/1g7lO74n1Jbqy18yUha5x4JalmR6TP7UL/view?usp=share_link
