@@ -56,4 +56,14 @@ const render = employees => {
       return template;
     };
 
+    const renderMain = html => {
+      const template = fs.readFileSync(path.resolve(pageDir, "main.html"), "utf8");
+      return replacePlaceholders(template, "team", html);
+    };
+    
+    const replacePlaceholders = (template, placeholder, value) => {
+      const pattern = new RegExp("{{ " + placeholder + " }}", "gm");
+      return template.replace(pattern, value);
+    };
+    
 module.exports = render;
