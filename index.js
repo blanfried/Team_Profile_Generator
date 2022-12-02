@@ -70,3 +70,83 @@ function buildTeam() {
         }
     })
 }
+
+function addEngineer() {
+      inquirer.prompt([
+          {
+              type: "input",
+              name: "engineerName",
+              message: "Please enter the engineer's name",
+          },
+          {
+              type: "input",
+              name: "engineerId",
+              message: "Please enter the engineer's ID number"
+          },
+          {
+              type: "input",
+              name: "engineerEmail",
+              message: "Please enter the engineer's email"
+          },
+          {
+              type: "input",
+              name: "engineerGithub",
+              message: "What is the engineer's Github?"
+          }]).then(answers => {
+              const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+              teamMembers.push(engineer)
+              endOfAddAnEmployee();
+          })
+  }
+  function endOfAddAnEmployee () {
+      inquirer.prompt([
+          {
+              type: "list",
+              name:"yesOrNo",
+              message: "Would you like to add another team member?",
+              choices: [
+                  "Yes",
+                  "No"
+              ]
+          }
+      ]).then(choice => {
+          if (choice.yesOrNo == "Yes") {
+              buildTeam();
+          } else {
+              console.log("Thank you for using this app. Your page is generated now!...");
+              createFile();
+          }
+      })
+  }
+  function addIntern() {
+      inquirer.prompt([
+          {
+              type: "input",
+              name: "internName",
+              message: "Please enter the intern's name",
+          },
+          {
+              type: "input",
+              name: "internId",
+              message: "Please enter the intern's ID number"
+          },
+          {
+              type: "input",
+              name: "internEmail",
+              message: "Please enter the intern's email"
+          },
+          {
+              type: "input",
+              name: "internSchool",
+              message: "Which school does the intern attend?"
+          }]).then(answers => {
+              const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+              teamMembers.push(intern)
+              endOfAddAnEmployee();
+          })
+  }
+  
+  function createFile() { 
+  
+      fs.writeFileSync("./generated/generated.html", render(teamMembers), "utf-8")
+  }
