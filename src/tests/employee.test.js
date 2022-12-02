@@ -1,6 +1,6 @@
 
 // Employee test cases 
-const Employee = require("../lib/Employee");
+const Employee = require("../lib/employee");
 
 test("creates new employee", () => {
     const newEmployee = new Employee();

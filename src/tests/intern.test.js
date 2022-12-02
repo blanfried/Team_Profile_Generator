@@ -1,5 +1,5 @@
 // Intern test cases 
-const Intern = require("../lib/Employee");
+const Intern = require("../lib/employee");
 
 test("getSchool() functions properly", () => {
     const testSchool = "UoB";
