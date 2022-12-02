@@ -1,5 +1,5 @@
 // Engineer test cases 
-const Engineer = require("../lib/Employee");
+const Engineer = require("../lib/employee");
 
 test("getRole() should be correct position", () => {
     const testRole = "Engineer";
